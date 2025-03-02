@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  padding-top: 80px;
+  background-color: whitesmoke;
+}
+
+main {
+}
+
+.task-manager {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background-color: white;
+  margin: 0 auto;
+  padding: 30px;
+  max-width: 500px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.task-manager > h1 {
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.task-form {
+  width: 100%;
+  display: flex;
+  gap: 0px;
+}
+
+.task-manager-input {
+  background-color: whitesmoke;
+  border: none;
+  padding: 8px;
+  width: 80%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.submit-button {
+  background-color: rgb(68, 0, 255);
+  width: 20%;
+  color: white;
+  border: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  cursor: pointer;
+}
