@@ -10,9 +10,6 @@ body {
   background-color: whitesmoke;
 }
 
-main {
-}
-
 .task-manager {
   display: flex;
   flex-direction: column;
