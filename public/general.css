@@ -53,3 +53,45 @@ body {
   border-bottom-right-radius: 5px;
   cursor: pointer;
 }
+
+.task-display {
+  max-width: 400px;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.task {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s;
+  cursor: pointer;
+  width: 100%;
+}
+.task:hover {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.task-name {
+  font-weight: 500;
+}
+
+.task > .image-section > figure > img {
+  width: 22px;
+  mix-blend-mode: darken;
+}
+
+.image-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
