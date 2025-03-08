@@ -20,6 +20,7 @@ const generateEdit = async () => {
             placeholder="Task Name"
             value = "${data.task.name}"
           />
+        
           <label for="complete"></label>
           <select class="edit-select" name="complete" id="complete">
             <option ${
@@ -30,6 +31,7 @@ const generateEdit = async () => {
             } value="false">In Progress</option>
           </select>
         </article>
+          <p class = "warning-line"> please provide task name </p>
         <button class="edit-submit">Edit</button>
       </section>`;
     main.innerHTML = storeHTML;
@@ -50,7 +52,16 @@ const generateEdit = async () => {
       });
 
       editInput.value = "";
-      generateEdit();
+      if (taskName === "") {
+        document
+          .querySelector(".warning-line")
+          .classList.add("warning-display");
+      } else {
+        document
+          .querySelector(".warning-line")
+          .classList.remove("warning-display");
+        generateEdit();
+      }
     });
   } catch (err) {}
 };
