@@ -84,9 +84,11 @@ body {
   font-weight: 500;
 }
 
-.task > .image-section > figure > img {
+.trashcan-icon {
   width: 22px;
-  mix-blend-mode: darken;
+}
+.edit-icon {
+  width: 22px;
 }
 
 .image-section {
@@ -94,4 +96,18 @@ body {
   flex-direction: row;
   align-items: center;
   gap: 10px;
+}
+
+.task > .image-section > figure {
+  padding: 3px;
+}
+
+.warning-line {
+  color: rgb(255, 0, 0);
+  font-size: 0.8rem;
+  display: none;
+}
+
+.warning-display {
+  display: block;
 }

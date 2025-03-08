@@ -54,7 +54,7 @@ const patchThatTask = async (req, res) => {
     const { id } = req.params;
     const thatTask = await Task.findOneAndUpdate({ _id: id }, req.body, {
       new: true,
-      runValidator: true,
+      runValidators: true,
     });
     if (thatTask) {
       res.status(200).json({ thatTask });

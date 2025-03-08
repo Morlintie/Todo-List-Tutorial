@@ -3,18 +3,27 @@ import { getFetch } from "./data.js";
 function taskManager() {
   const formField = document.querySelector(".tasks-form-js");
   const taskDisplay = document.querySelector(".task-display");
+  const disclaimer = document.querySelector(".warning-line");
+
   async function postFetch() {
-    const formData = new FormData(formField);
-    const formName = formData.get("name");
-    console.log(JSON.stringify({ formName }));
-    await fetch("/api/tasks/create", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name: formName }),
-    });
-    taskManager();
+    try {
+      const formData = new FormData(formField);
+      const formName = formData.get("name");
+
+      await fetch("/api/tasks/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name: formName }),
+      });
+      if (formName === "") {
+        disclaimer.classList.add("warning-display");
+      } else {
+        disclaimer.classList.remove("warning-display");
+      }
+      taskManager();
+    } catch (err) {}
   }
 
   formField.addEventListener("submit", (event) => {
@@ -37,18 +46,21 @@ function taskManager() {
           <section class="image-section">
           <figure class="trash-figure" data-trash-id = "${task._id}">
             <img
-              class="trahscan-icon"
+              class="trashcan-icon"
               src="../icons/trashcan-icon.jpg"
               alt="trashcan-icon"
             />
             </figure >
-            <figure class="edit-figure" data-edit-id = "${task._id}">
+            <a href = "/edit.html?taskId=${
+              task._id
+            }"><figure class="edit-figure">
             <img
               class="edit-icon"
               src="../icons/edit-icon.png"
               alt="edit-icon"
             />
             </figure>
+            </a>
           </section>
         </article>`;
       });
@@ -74,7 +86,8 @@ function taskManager() {
           taskManager();
         });
       });
-    });
+    })
+    .catch((err) => {});
 }
 
 taskManager();
