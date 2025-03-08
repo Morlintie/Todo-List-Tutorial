@@ -9,7 +9,6 @@ function taskManager() {
     try {
       const formData = new FormData(formField);
       const formName = formData.get("name");
-
       await fetch("/api/tasks/create", {
         method: "POST",
         headers: {
@@ -17,20 +16,16 @@ function taskManager() {
         },
         body: JSON.stringify({ name: formName }),
       });
-      if (formName === "") {
-        disclaimer.classList.add("warning-display");
-      } else {
-        disclaimer.classList.remove("warning-display");
-      }
-      taskManager();
     } catch (err) {}
   }
 
-  formField.addEventListener("submit", (event) => {
+  formField.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     postFetch();
     document.querySelector(".task-manager-input").value = "";
+
+    taskManager();
   });
   let taskHTML = "";
 
